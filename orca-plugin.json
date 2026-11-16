@@ -1,0 +1,72 @@
+{
+  "manifestVersion": 1,
+  "id": "dim-unfocused-panes",
+  "publisher": "khoa",
+  "name": "Dim Unfocused Panes",
+  "version": "0.3.0",
+  "description": "Dims every tab group and terminal split except the one you are working in, like Quil's unfocused_dim.",
+  "engines": {
+    "orca": ">=1.4.0"
+  },
+  "pluginApi": 1,
+  "main": "worker.mjs",
+  "contributes": {
+    "commands": [
+      {
+        "id": "settings",
+        "title": "Dim Unfocused Panes: Settings"
+      },
+      {
+        "id": "toggle",
+        "title": "Dim Unfocused Panes: Toggle"
+      },
+      {
+        "id": "stronger",
+        "title": "Dim Unfocused Panes: Stronger"
+      },
+      {
+        "id": "weaker",
+        "title": "Dim Unfocused Panes: Weaker"
+      },
+      {
+        "id": "toggle-window-blur",
+        "title": "Dim Unfocused Panes: Toggle Dim All When Orca Unfocused"
+      },
+      {
+        "id": "reapply",
+        "title": "Dim Unfocused Panes: Re-apply"
+      }
+    ],
+    "events": [
+      {
+        "on": "agent.status.changed"
+      },
+      {
+        "on": "worktree.created"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "toggle",
+        "key": "Mod+Alt+D"
+      },
+      {
+        "command": "stronger",
+        "key": "Mod+Alt+Equal"
+      },
+      {
+        "command": "weaker",
+        "key": "Mod+Alt+Minus"
+      },
+      {
+        "command": "settings",
+        "key": "Mod+Alt+Comma"
+      }
+    ]
+  },
+  "capabilities": [
+    {
+      "kind": "events:subscribe"
+    }
+  ]
+}
